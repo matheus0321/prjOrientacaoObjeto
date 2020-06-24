@@ -12,9 +12,6 @@ namespace prjOrientacaoObjeto.Classes
         {
             Classes.Cliente cli = new Classes.Cliente();
             cli.Codigo = Convert.ToInt32("3");
-
-            int metadeCliente = cli.Codigo.Metade();
-
             cli.Nome = "Matheus";
             cli.Tipo = 1;
             cli.DataCadastro = new DateTime(2020, 06, 23);

@@ -12,6 +12,7 @@ namespace prjOrientacaoObjeto.Classes
         public string Nome { get; set; }
         public int Tipo { get; set; }
         public DateTime DataCadastro { get; set; }
+        public double Valor { get; set; }
         public List<Contato> Contatos { get; set; }
     }
 }

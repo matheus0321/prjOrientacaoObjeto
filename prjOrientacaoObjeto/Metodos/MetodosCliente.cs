@@ -6,6 +6,11 @@ public static class MetodoExtensao
     {
         return Valor / 2;
     }
+
+    public static double Juros(this double Valor)
+    {
+        return Valor + 20;
+    }
 }
 
 namespace prjOrientacaoObjeto.Classes
