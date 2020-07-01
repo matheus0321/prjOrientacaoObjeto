@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prjOrientacaoObjeto.Classes
+namespace Loja.Classes
 {
     public class Contato
     {

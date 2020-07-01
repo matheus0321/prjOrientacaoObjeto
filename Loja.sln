@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prjOrientacaoObjeto", "prjOrientacaoObjeto\prjOrientacaoObjeto.csproj", "{86EE0A7F-B5DA-4953-9C20-79D52FD3DBF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loja", "Loja\Loja.csproj", "{213DE68E-0C5A-46E7-AD3B-963458D79E96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaMenager", "LojaMenager\LojaMenager.csproj", "{2984EA04-2666-4DA4-810C-48240F3CB857}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{86EE0A7F-B5DA-4953-9C20-79D52FD3DBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86EE0A7F-B5DA-4953-9C20-79D52FD3DBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86EE0A7F-B5DA-4953-9C20-79D52FD3DBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213DE68E-0C5A-46E7-AD3B-963458D79E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213DE68E-0C5A-46E7-AD3B-963458D79E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213DE68E-0C5A-46E7-AD3B-963458D79E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213DE68E-0C5A-46E7-AD3B-963458D79E96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2984EA04-2666-4DA4-810C-48240F3CB857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2984EA04-2666-4DA4-810C-48240F3CB857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2984EA04-2666-4DA4-810C-48240F3CB857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2984EA04-2666-4DA4-810C-48240F3CB857}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
