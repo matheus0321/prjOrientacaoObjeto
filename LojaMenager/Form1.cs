@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Loja.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace LojaMenager
 {
     public partial class Form1 : Form
     {
+        private BindingSource dados = new BindingSource();
+
         public Form1()
         {
             InitializeComponent();
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+
+            dados.DataSource = Cliente.Todos();
+
+            dataGridView1.DataSource = dados;
         }
     }
 }

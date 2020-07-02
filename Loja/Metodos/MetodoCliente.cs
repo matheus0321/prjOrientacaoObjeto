@@ -156,6 +156,7 @@ namespace Loja.Classes
 
         public Cliente()
         {
+            this._codigo = Proximo();
             this._isNew = true;
             this._isModified = false;
         }
@@ -229,6 +230,8 @@ namespace Loja.Classes
                                 if (_return == null)
                                 {
                                     _return = new List<Cliente>();
+
+                                    cli._isNew = false;
 
                                     _return.Add(cli);
                                 }

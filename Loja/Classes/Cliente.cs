@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace Loja.Classes
     {
         private Boolean _isNew;
 
+        [Browsable(false)]
         public Boolean IsNew
         {
             get { return _isNew; }
@@ -17,6 +19,7 @@ namespace Loja.Classes
 
         private Boolean _isModified;
 
+        [Browsable(false)]
         public Boolean IsModified
         {
             get { return _isModified; }
