@@ -44,8 +44,8 @@
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\Contato.cs" />
     <Compile Include="Excecoes\ExcecoesCliente.cs" />
-    <Compile Include="Metodos\Cliente.cs" />
-    <Compile Include="Metodos\MetodosCliente.cs" />
+    <Compile Include="Metodos\MetodoCliente.cs" />
+    <Compile Include="Metodos\MetodosCliente1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

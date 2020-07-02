@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
 
@@ -90,8 +91,67 @@ namespace Loja.Classes
             }
         }
 
+        public static Int32 Proximo()
+        {
+            Int32 _return = 0;
+            using (SqlConnection cn = new SqlConnection("Server=DESKTOP-0EI22TG\\SQLEXPRESS;Database=Loja;Trusted_Connection=True;"))
+            {
+                try
+                {
+                    cn.Open();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = cn;
+                    cmd.CommandText = "Select Max(Codigo) + 1 From Cliente";
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            dr.Read();
+                            _return = dr.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            return _return;
+        }
+
         public void Apagar()
         {
+            using (SqlConnection cn = new SqlConnection("Server=DESKTOP-0EI22TG\\SQLEXPRESS;Database=Loja;Trusted_Connection=True;"))
+            {
+                try
+                {
+                    cn.Open();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "Delete From  Cliente  where Codigo = @codigo";
+                    cmd.Connection = cn;
+
+                    cmd.Parameters.AddWithValue("@codigo", this._codigo);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
         }
 
         public Cliente()
@@ -133,6 +193,51 @@ namespace Loja.Classes
                     this._isModified = false;
                 }
             }
+        }
+
+        public static List<Cliente> Todos()
+        {
+            List<Cliente> _return = null;
+
+            using (SqlConnection cn = new SqlConnection("Server=DESKTOP-0EI22TG\\SQLEXPRESS;Database=Loja;Trusted_Connection=True;"))
+            {
+                try
+                {
+                    cn.Open();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = cn;
+                    cmd.CommandText = "Select * From Cliente";
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            while (dr.Read())
+                            {
+                                Cliente cli = new Cliente();
+                                cli._codigo = dr.GetInt32(dr.GetOrdinal("Codigo"));
+                                cli._nome = dr.GetString(dr.GetOrdinal("Nome"));
+                                cli._tipo = dr.GetInt32(dr.GetOrdinal("Tipo"));
+                                cli._dataCadastro = dr.GetDateTime(dr.GetOrdinal("DataCadastro"));
+
+                                if (_return == null)
+                                {
+                                    _return = new List<Cliente>();
+
+                                    _return.Add(cli);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return _return;
         }
 
         public void Dispose()
