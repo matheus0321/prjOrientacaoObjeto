@@ -56,10 +56,6 @@ namespace Loja.Classes
             }
             set
             {
-                if (value.Length <= 3)
-                {
-                    throw new Loja.Excecoes.ValidacaoException("O nome do cliente precisa no minimo 4 caracteres !! ");
-                }
                 _nome = value;
                 this._isModified = true;
             }

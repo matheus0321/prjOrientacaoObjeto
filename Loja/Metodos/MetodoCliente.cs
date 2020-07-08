@@ -33,7 +33,8 @@ namespace Loja.Classes
                     try
                     {
                         cmd.ExecuteNonQuery();
-                        this._isModified = false;
+                        this._isNew = false;
+                        this._isModified = true;
                     }
                     catch (Exception)
                     {
@@ -58,7 +59,7 @@ namespace Loja.Classes
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "Update Cliente Set Nome = @nome , Tipo = @tipo,  DataCadastro = @datacadastro Where Codigo = @codigo";
+                    cmd.CommandText = "Update Cliente Set Nome = @nome , Tipo = @tipo,  DataCadastro = @datacadastro where Codigo = @codigo";
                     cmd.Connection = cn;
 
                     cmd.Parameters.AddWithValue("@codigo", this._codigo);
@@ -198,7 +199,7 @@ namespace Loja.Classes
 
         public static List<Cliente> Todos()
         {
-            List<Cliente> _return = null;
+            var _return = new List<Cliente>();
 
             using (SqlConnection cn = new SqlConnection("Server=DESKTOP-0EI22TG\\SQLEXPRESS;Database=Loja;Trusted_Connection=True;"))
             {
@@ -222,6 +223,7 @@ namespace Loja.Classes
                             while (dr.Read())
                             {
                                 Cliente cli = new Cliente();
+
                                 cli._codigo = dr.GetInt32(dr.GetOrdinal("Codigo"));
                                 cli._nome = dr.GetString(dr.GetOrdinal("Nome"));
                                 cli._tipo = dr.GetInt32(dr.GetOrdinal("Tipo"));
@@ -229,10 +231,6 @@ namespace Loja.Classes
 
                                 if (_return == null)
                                 {
-                                    _return = new List<Cliente>();
-
-                                    cli._isNew = false;
-
                                     _return.Add(cli);
                                 }
                             }
@@ -240,6 +238,7 @@ namespace Loja.Classes
                     }
                 }
             }
+
             return _return;
         }
 

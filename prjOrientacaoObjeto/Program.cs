@@ -10,9 +10,10 @@ namespace prjOrientacaoObjeto.Classes
     {
         public static void Main(string[] args)
         {
-            //using (Loja.Classes.Cliente cli2 = new Loja.Classes.Cliente(2))
-            //{
-            //    cli2.Nome = "Zezinho";
+            Loja.Classes.Cliente cli2 = new Loja.Classes.Cliente(2);
+
+            cli2.Nome = "carlos".PrimeiraMaiuscula(true);
+            cli2.DataCadastro = new DateTime(2020, 07, 07);
 
             //using (Classes.Cliente cli2 = new Classes.Cliente(2))
             //{
